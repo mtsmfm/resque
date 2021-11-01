@@ -1,0 +1,22 @@
+apiVersion: 1.0.0
+metadata:
+  name: resque
+projects:
+  - name: resque
+    source:
+      location: "https://github.com/resque/resque"
+      type: github
+components:
+  - id: esbenp/prettier-vscode/latest
+    type: chePlugin
+  - mountSources: true
+    memoryLimit: 4Gi
+    type: dockerimage
+    alias: ruby
+    image: "ghcr.io/mtsmfm/devfiles/ruby:3.0"
+  - id: redhat/vscode-yaml/latest
+    type: chePlugin
+  - memoryLimit: 1Gi
+    type: dockerimage
+    alias: redis
+    image: "redis:alpine"
